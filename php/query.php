@@ -1,6 +1,8 @@
 <?php
 include("connection.php");
 
+$catImgAddress = 'img/categories/';
+
 if(isset($_POST['AddCategory'])){
     $name = $_POST['catName'];
     $imageName = $_FILES['catImage']['name'];
@@ -14,6 +16,8 @@ if(move_uploaded_file($imageObject, $pathDirectory)){
     $query -> bindParam("pimg", $imageName);
     $query -> execute();
     echo "<script>alert('data submitted successfully');</script>";
+    // header("Location: " . $_SERVER['PHP_SELF']);
+    // exit;
 
 }
 }else{
